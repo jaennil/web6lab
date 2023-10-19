@@ -13,6 +13,10 @@ function pow(x, n) {
         alert("ввод должен быть числом")
         return "";
     }
+    if (n < 1) {
+        alert("n должно быть натуральным числом")
+        return "";
+    }
     let result = 1
     for (let i = 0; i < n; i++) {
         result *= x
@@ -31,7 +35,11 @@ function gcd(a, b) {
         alert("ввод должен быть числом")
         return "";
     }
-
+    
+    if (a < 1 || b < 1) {
+        alert("числа должны быть положительными")
+        return "";
+    }
     if (a < b) {
         a, b = b, a
     }
@@ -53,6 +61,11 @@ function minDigit(x) {
         alert("ввод должен быть числом")
         return ""
     }
+
+    if (x < 0) {
+        alert("x должен быть положительными")
+        return ""
+    }
     let splt = x.split('')
     let splt_int = splt.map(Number)
     return Math.min(...splt_int)
@@ -61,7 +74,7 @@ function minDigit(x) {
 function pluralizeOnClick() {
     let n = document.getElementById("pluralize_n").value
     let result_label = document.getElementById("pluralize_result")
-    result_label.innerHTML = "Результат: " + pluralizeRecords(n)
+    result_label.innerHTML = pluralizeRecords(n)
 }
 
 function pluralizeRecords(n) {
