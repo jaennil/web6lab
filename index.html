@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="styles/first_page.css">
-	<title>Дубровских Никита Евгеньевич 221-361 лаб6</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/first_page.css">
+    <script src="helper.js"></script>
+    <title>Дубровских Никита Евгеньевич 221-361 лаб6</title>
 </head>
 
 <body>
-    <h1>Hello world</h1>
+    <h1>Hello</h1>
+    <h2>Возведение в степень</h2>
+    <div>
+        <label for="pow_x">x</label>
+        <input id="pow_x">
+    </div>
+    <div>
+        <label for="pow_n">n</label>
+        <input id="pow_n">
+    </div>
+        <label for="pow_result">Результат:</label>
+        <p id="pow_result" style="display: inline"></p>
+        <button onclick="powOnClick()" style="display: block">Рассчитать</button>
 </body>
