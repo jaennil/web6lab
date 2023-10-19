@@ -5,7 +5,7 @@ function powOnClick() {
 }
 
 function isNumber(string) {
-    return /^[0-9]+$/.test(string)
+    return /^-?[0-9]+$/.test(string)
 }
 
 function pow(x, n) {
@@ -75,11 +75,12 @@ function pluralizeRecords(n) {
     }
     let base = "В результате выполнения запроса "
     let tail = ""
-    if (n == 0 || n >= 5)
-        tail = `было найдено ${n} записей`
-    else if (n == 1)
-        tail = "была найдена 1 запись"
-    else
+    if (n % 10 == 1 && n % 100 != 11)
+        tail = `была найдена ${n} запись`
+    else if ([2, 3, 4].includes(n % 10) &&
+        ![12, 13, 14].includes(n % 100))
         tail = `было найдено ${n} записи`
+    else if ([0, 5, 6, 7, 8, 9].includes(n % 10) || [11, 12, 13, 14].includes(n % 100))
+        tail = `было найдено ${n} записей`
     return base + tail
 }
