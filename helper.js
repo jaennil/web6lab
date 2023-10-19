@@ -37,3 +37,15 @@ function gcd(a, b) {
         }
     }
 }
+
+function minDigitOnClick() {
+    let x = document.getElementById("min_digit_x").value
+    let result_label = document.getElementById("min_digit_result")
+    result_label.innerHTML = "Результат: " + minDigit(x)
+}
+
+function minDigit(x) {
+    let splt = x.split('')
+    let splt_int = splt.map(Number)
+    return Math.min(...splt_int)
+}
