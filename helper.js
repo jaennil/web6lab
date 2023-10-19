@@ -24,5 +24,16 @@ function gcdOnClick() {
 }
 
 function gcd(a, b) {
-
+    if ((typeof x !== 'number') || (typeof n !== 'number')) {
+        alert("ввод должен быть числом")
+        return "";
+    }
+    if (a < b) {
+        a, b = b, a
+    }
+    for (let i = b; i > 0; i--) {
+        if (a % i == 0 && b % i == 0) {
+            return i;
+        }
+    }
 }
