@@ -4,17 +4,20 @@ function powOnClick() {
     document.getElementById("pow_result").innerHTML = pow(x, n)
 }
 
+function isNumber(string) {
+    return /^[0-9]+$/.test(string)
+}
+
 function pow(x, n) {
-    if ((typeof x !== 'number') || (typeof n !== 'number')) {
+    if (!isNumber(x) || !isNumber(n)) {
         alert("ввод должен быть числом")
         return "";
     }
-
     let result = 1
     for (let i = 0; i < n; i++) {
         result *= x
     }
-    return result
+    return result;
 }
 
 function gcdOnClick() {
@@ -24,10 +27,11 @@ function gcdOnClick() {
 }
 
 function gcd(a, b) {
-    if ((typeof x !== 'number') || (typeof n !== 'number')) {
+    if (!isNumber(a) || !isNumber(b)) {
         alert("ввод должен быть числом")
         return "";
     }
+
     if (a < b) {
         a, b = b, a
     }
@@ -45,7 +49,37 @@ function minDigitOnClick() {
 }
 
 function minDigit(x) {
+    if (!isNumber(x)) {
+        alert("ввод должен быть числом")
+        return ""
+    }
     let splt = x.split('')
     let splt_int = splt.map(Number)
     return Math.min(...splt_int)
+}
+
+function pluralizeOnClick() {
+    let n = document.getElementById("pluralize_n").value
+    let result_label = document.getElementById("pluralize_result")
+    result_label.innerHTML = "Результат: " + pluralizeRecords(n)
+}
+
+function pluralizeRecords(n) {
+    if (!isNumber(n)) {
+        alert("ввод должен быть числом")
+        return ""
+    }
+    if (n < 0) {
+        alert("число не может быть отрицательным")
+        return ""
+    }
+    let base = "В результате выполнения запроса "
+    let tail = ""
+    if (n == 0 || n >= 5)
+        tail = `было найдено ${n} записей`
+    else if (n == 1)
+        tail = "была найдена 1 запись"
+    else
+        tail = `было найдено ${n} записи`
+    return base + tail
 }
