@@ -105,6 +105,14 @@ function fibOnClick() {
 }
 
 function fibb(n) {
+    if (!isNumber(n)) {
+        alert("ввод должен быть числом")
+        return ""
+    }
+    if (n < 0) {
+        alert("число не может быть отрицательным")
+        return ""
+    }
     first = 0
     second = 1
     for (let i = 0; i < n; i++) {
