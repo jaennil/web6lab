@@ -97,3 +97,20 @@ function pluralizeRecords(n) {
         tail = `было найдено ${n} записей`
     return base + tail
 }
+
+function fibOnClick() {
+    let n = document.getElementById("fib_n").value
+    let result_label = document.getElementById("fib_result")
+    result_label.innerHTML = "Результат: " + fibb(n)
+}
+
+function fibb(n) {
+    first = 0
+    second = 1
+    for (let i = 0; i < n; i++) {
+        temp = second
+        second = first
+        first += temp
+    }
+    return first
+}
